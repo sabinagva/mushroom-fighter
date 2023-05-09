@@ -52,6 +52,7 @@ function scepterAttackBtn() {
    else {
     playerAP -= scepterCost //playerAP= playerAP -scepterCost
    }
+   
     
    $('#ap-meter').val(playerAP)
    $('.ap-text').text(playerAP + ' AP')
@@ -121,6 +122,21 @@ function starAttackBtn() {
     $('#ap-meter').val(playerAP)
     $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
+    $('.hp-text').text(mushroomHP + ' HP')
+
+}
+
+function Animation() {
+    //player lost
+    if(playerAP === 0) {
+        $('.freaky-fungus').replaceClass('walk').addClass('jump');
+    }
+    //player won
+    if(mushroomHP === 0) {
+        $('.freaky-fungus').replaceClass('walk').addClass('dead');
+    }
+
+    $('.ap-text').text(playerAP + ' AP')
     $('.hp-text').text(mushroomHP + ' HP')
 
 }
