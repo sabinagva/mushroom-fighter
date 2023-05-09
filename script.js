@@ -58,7 +58,7 @@ function scepterAttackBtn() {
    $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
     $('.hp-text').text(mushroomHP + ' HP')
-   
+    Animation()
 
 }
 function entangleAttackBtn() {
@@ -80,7 +80,7 @@ function entangleAttackBtn() {
     $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
     $('.hp-text').text(mushroomHP + ' HP')
-
+     Animation()
 }
 function dragonAttackBtn() {
 
@@ -101,7 +101,7 @@ function dragonAttackBtn() {
     $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
     $('.hp-text').text(mushroomHP + ' HP')
-
+    Animation()
 }
 function starAttackBtn() {
 
@@ -123,17 +123,19 @@ function starAttackBtn() {
     $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
     $('.hp-text').text(mushroomHP + ' HP')
+    Animation()
 
 }
 
 function Animation() {
     //player lost
+    //console.log('hiii')
     if(playerAP === 0) {
-        $('.freaky-fungus').replaceClass('walk').addClass('jump');
+        $('.freaky-fungus').removeClass('walk').addClass('jump');
     }
     //player won
     if(mushroomHP === 0) {
-        $('.freaky-fungus').replaceClass('walk').addClass('dead');
+        $('.freaky-fungus').removeClass('walk').addClass('dead');
     }
 
     $('.ap-text').text(playerAP + ' AP')
