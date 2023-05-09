@@ -173,6 +173,9 @@ body:has( .freaky-fungus.dead) {
     top: 0;
     left: 0;
 }
+.disabled {
+    cursor: not-allowed;
+}
 
 .attack-btn.arcane-scepter {
     background-image: url('./images/arcane-scepter.png');

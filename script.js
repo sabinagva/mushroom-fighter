@@ -35,8 +35,12 @@ const entangleCost = 23;
 const dragonCost = 38;
 const starCost = 33;
 
+//our buttons make sure mushroom hp goes down with each attack and player AP goes down too
 function scepterAttackBtn() {
     console.log('in scepterAttackBtn')
+    if(mushroomHP === 0 || playerAP === 0) {
+        return;
+       }
    
     if((mushroomHP - scepterDamage) <= 0) {
         mushroomHP = 0;
@@ -52,7 +56,7 @@ function scepterAttackBtn() {
    else {
     playerAP -= scepterCost //playerAP= playerAP -scepterCost
    }
-   
+  
     
    $('#ap-meter').val(playerAP)
    $('.ap-text').text(playerAP + ' AP')
@@ -62,6 +66,9 @@ function scepterAttackBtn() {
 
 }
 function entangleAttackBtn() {
+    if(mushroomHP === 0 || playerAP === 0) {
+        return;
+       }
 
     if((mushroomHP - entangleDamage) <= 0) {
         mushroomHP = 0;
@@ -76,6 +83,7 @@ function entangleAttackBtn() {
    else {
     playerAP -= entangleCost 
    }
+  
     $('#ap-meter').val(playerAP)
     $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
@@ -83,6 +91,9 @@ function entangleAttackBtn() {
      Animation()
 }
 function dragonAttackBtn() {
+    if(mushroomHP === 0 || playerAP === 0) {
+        return;
+       }
 
     if((mushroomHP - dragonDamage) <= 0) {
         mushroomHP = 0;
@@ -97,6 +108,7 @@ function dragonAttackBtn() {
    else {
     playerAP -= dragonCost 
    }
+  
     $('#ap-meter').val(playerAP)
     $('.ap-text').text(playerAP + ' AP')
     $('#hp-meter').val(mushroomHP)
@@ -104,6 +116,9 @@ function dragonAttackBtn() {
     Animation()
 }
 function starAttackBtn() {
+    if(mushroomHP === 0 || playerAP === 0) {
+        return;
+       }
 
     if((mushroomHP - starDamage) <= 0) {
         mushroomHP = 0;
@@ -118,6 +133,7 @@ function starAttackBtn() {
    else {
     playerAP -= starCost 
    }
+   
 
     $('#ap-meter').val(playerAP)
     $('.ap-text').text(playerAP + ' AP')
@@ -129,13 +145,22 @@ function starAttackBtn() {
 
 function Animation() {
     //player lost
-    //console.log('hiii')
+    
     if(playerAP === 0) {
         $('.freaky-fungus').removeClass('walk').addClass('jump');
+
     }
     //player won
     if(mushroomHP === 0) {
         $('.freaky-fungus').removeClass('walk').addClass('dead');
+        
+    }
+    //making sure our buttons are disabled 
+    if(playerAP === 0)  {
+        $('#dragon').addClass('disabled');
+        $('#star').addClass('disabled');
+        $('#scepter').addClass('disabled');
+        $('#entangle').addClass('disabled');
     }
 
     $('.ap-text').text(playerAP + ' AP')
